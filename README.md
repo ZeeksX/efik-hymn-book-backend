@@ -85,6 +85,7 @@ See `.env.example` for the standard configuration:
 - `JWT_ACCESS_EXPIRES_IN`
 - `JWT_REFRESH_EXPIRES_IN`
 - `FRONTEND_URL`
+- `API_PUBLIC_URL`
 - `LOG_LEVEL`
 - `COOKIE_DOMAIN`
 
@@ -138,6 +139,8 @@ Swagger is exposed at:
 ```text
 http://localhost:4000/api/docs
 ```
+
+The deployed API should set `API_PUBLIC_URL` to its public Render URL. Swagger is also available at `/docs`, and the raw OpenAPI document is available at `/openapi.json`.
 
 ## Authentication architecture
 

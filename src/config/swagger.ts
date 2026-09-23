@@ -10,7 +10,12 @@ const options = {
       version: '1.0.0',
       description: 'REST API for the Efik hymn book backend.',
     },
-    servers: [{ url: `http://localhost:${env.PORT}` }],
+    servers: [
+      {
+        url: env.API_PUBLIC_URL ?? `http://localhost:${env.PORT}`,
+        description: env.API_PUBLIC_URL ? 'Deployed API' : 'Local API',
+      },
+    ],
     components: {
       securitySchemes: {
         bearerAuth: {
