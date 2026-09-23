@@ -14,6 +14,8 @@
     "test:integration": "vitest run --config vitest.integration.config.ts",
     "seed": "tsx src/scripts/seed.ts",
     "import:hymns": "tsx src/scripts/import-hymns.ts",
+    "convert:hymns": "tsx src/scripts/convert-hymn-source.ts",
+    "normalize:hymns": "tsx src/scripts/normalize-hymn-json.ts",
     "format": "prettier --write ."
   },
   "engines": {
