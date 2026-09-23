@@ -13,7 +13,7 @@ export const connectDatabase = async (): Promise<void> => {
     });
 
     logger.info({ database: mongoose.connection.name }, 'MongoDB connected');
-  } catch (error) {
+  } catch (error: unknown) {
     logger.error({ err: error }, 'MongoDB connection failed');
     throw error;
   }
@@ -22,7 +22,7 @@ export const connectDatabase = async (): Promise<void> => {
     logger.warn('MongoDB disconnected');
   });
 
-  mongoose.connection.on('error', (error) => {
+  mongoose.connection.on('error', (error: unknown) => {
     logger.error({ err: error }, 'MongoDB connection error');
   });
 };
