@@ -1,5 +1,6 @@
-import swaggerJsdoc from 'swagger-jsdoc';
 import { env } from './env';
+
+const swaggerJsdoc = require('swagger-jsdoc');
 
 const options = {
   definition: {

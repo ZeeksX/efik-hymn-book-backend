@@ -12,7 +12,8 @@ export const listCategoriesController = async (_req: Request, res: Response, nex
 
 export const getCategoryBySlugController = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const category = await getCategoryBySlug(req.params.slug);
+    const slug = Array.isArray(req.params.slug) ? req.params.slug[0] : req.params.slug;
+    const category = await getCategoryBySlug(slug);
     res.json({ success: true, data: category });
   } catch (error) {
     next(error);
@@ -21,7 +22,8 @@ export const getCategoryBySlugController = async (req: Request, res: Response, n
 
 export const getCategoryHymnsController = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const hymns = await getCategoryHymns(req.params.slug);
+    const slug = Array.isArray(req.params.slug) ? req.params.slug[0] : req.params.slug;
+    const hymns = await getCategoryHymns(slug);
     res.json({ success: true, data: hymns });
   } catch (error) {
     next(error);

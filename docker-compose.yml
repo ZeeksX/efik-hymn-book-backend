@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  api:
+    build: .
+    container_name: efik-hymn-book-api
+    ports:
+      - '4000:4000'
+    environment:
+      NODE_ENV: development
+      PORT: 4000
+      MONGODB_URI: mongodb://mongo:27017/efik_hymn_book
+      JWT_ACCESS_SECRET: replace_with_a_secure_access_secret
+      JWT_REFRESH_SECRET: replace_with_a_secure_refresh_secret
+      JWT_ACCESS_EXPIRES_IN: 15m
+      JWT_REFRESH_EXPIRES_IN: 7d
+      FRONTEND_URL: http://localhost:5173
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:7
+    container_name: efik-hymn-book-mongo
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_DATABASE: efik_hymn_book
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

@@ -3,8 +3,9 @@ import express, { type Express } from 'express';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { pinoHttp } from 'pino-http';
-import swaggerUi from 'swagger-ui-express';
 import { env } from './config/env';
+
+const swaggerUi = require('swagger-ui-express');
 import { logger } from './config/logger';
 import { swaggerSpec } from './config/swagger';
 import errorHandler from './middleware/errorHandler';

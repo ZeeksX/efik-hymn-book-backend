@@ -28,8 +28,8 @@ export const sanitizeUser = (user: Record<string, any>) => ({
   updatedAt: user.updatedAt,
 });
 
-const signToken = (user: { id: string; role: string }, expiresIn: string, secret: string) =>
-  jwt.sign({ sub: user.id, role: user.role }, secret, { expiresIn });
+const signToken = (user: { id: string; role: string }, expiresIn: string, secret: jwt.Secret) =>
+  jwt.sign({ sub: user.id, role: user.role }, secret, { expiresIn: expiresIn as jwt.SignOptions['expiresIn'] });
 
 export const registerUser = async (payload: RegisterInput) => {
   const email = normalizeEmail(payload.email);

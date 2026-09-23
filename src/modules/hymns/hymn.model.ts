@@ -19,7 +19,7 @@ const chorusSchema = new Schema(
 const hymnSchema = new Schema(
   {
     number: { type: Number, required: true, unique: true, index: true },
-    title: { type: String, required: true, trim: true, index: true },
+    title: { type: String, required: true, trim: true },
     alternateTitle: { type: String },
     slug: { type: String, required: true, unique: true, lowercase: true, trim: true },
     category: { type: Schema.Types.ObjectId, ref: 'Category', required: true },

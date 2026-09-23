@@ -15,10 +15,8 @@ const errorHandler: ErrorRequestHandler = (err, _req, res, _next) => {
   };
 
   if (err instanceof AppError && err.details) {
-    payload.error = {
-      ...payload.error,
-      fields: err.details,
-    };
+    const errorPayload = payload.error as Record<string, unknown>;
+    errorPayload.fields = err.details;
   }
 
   if (statusCode >= 500) {

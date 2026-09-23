@@ -41,7 +41,7 @@
     "morgan": "^1.10.0",
     "pino": "^9.0.0",
     "pino-http": "^10.0.0",
-    "swagger-jsdoc": "^6.6.0",
+    "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0",
     "zod": "^3.24.0"
   },
